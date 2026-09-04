@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ' *)",
+      "Bash(pip list *)",
+      "Bash(python -m searx.webapp)",
+      "Bash(netstat -ano)",
+      "Bash(curl *)",
+      "Bash(taskkill /PID 18408 /F)",
+      "PowerShell(Get-NetTCPConnection *)"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{% extends "simple/base.html" %}
+{% from 'simple/icons.html' import icon_big, icon_small %}
+{% block title %}{{ _('My favorites') }} — {% endblock %}
+{% block content %}
+<div class="user-page">
+  <a href="{{ url_for('index') }}" class="btn-back-search">
+    <svg viewBox="0 0 512 512" width="15" height="15" fill="none" stroke="currentColor" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"><path d="M244 400 100 256l144-144M120 256h292"/></svg>
+    {{ _('Search') }}
+  </a>
+  <h1 class="user-page-title">
+    <svg viewBox="0 0 512 512" width="28" height="28" fill="none" stroke="currentColor" stroke-width="32" aria-hidden="true"><path d="M380.93 57.37A32 32 0 0 0 358.3 48H94.22A46.21 46.21 0 0 0 48 94.22v323.56A46.21 46.21 0 0 0 94.22 464h323.56A46.36 46.36 0 0 0 464 417.78V153.7a32 32 0 0 0-9.37-22.63ZM256 416a64 64 0 1 1 64-64 63.92 63.92 0 0 1-64 64m48-224H112a16 16 0 0 1-16-16v-64a16 16 0 0 1 16-16h192a16 16 0 0 1 16 16v64a16 16 0 0 1-16 16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    {{ _('My favorites') }}
+  </h1>
+
+  {% if favorites %}
+  <ul class="user-list">
+    {% for item in favorites %}
+    <li class="user-list-item">
+      <span class="user-list-icon" aria-hidden="true">
+        <svg viewBox="0 0 512 512" width="16" height="16" fill="none" stroke="currentColor" stroke-width="32"><path stroke-linecap="round" stroke-linejoin="round" d="M380.93 57.37A32 32 0 0 0 358.3 48H94.22A46.21 46.21 0 0 0 48 94.22v323.56A46.21 46.21 0 0 0 94.22 464h323.56A46.36 46.36 0 0 0 464 417.78V153.7a32 32 0 0 0-9.37-22.63ZM256 416a64 64 0 1 1 64-64 63.92 63.92 0 0 1-64 64m48-224H112a16 16 0 0 1-16-16v-64a16 16 0 0 1 16-16h192a16 16 0 0 1 16 16v64a16 16 0 0 1-16 16"/></svg>
+      </span>
+      <a href="{{ item.url|e }}" class="user-list-link" rel="noreferrer" title="{{ item.url|e }}">{{ item.title|e }}</a>
+      <span class="user-list-meta">{{ item.saved_at }}</span>
+      <form method="POST" action="{{ url_for('favorites_remove', fav_id=item.id) }}" class="favorite-remove-form">
+        <button type="submit" class="btn-remove" title="{{ _('Remove') }}" aria-label="{{ _('Remove') }}">
+          <svg viewBox="0 0 512 512" width="14" height="14" fill="none" stroke="currentColor" stroke-width="40" stroke-linecap="round"><path d="M368 368 144 144M368 144 144 368"/></svg>
+        </button>
+      </form>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="user-page-empty">{{ _('No favorites saved yet.') }}</p>
+  {% endif %}
+</div>
+{% endblock %}

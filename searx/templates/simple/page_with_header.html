@@ -1,0 +1,11 @@
+{%- set body_class = "page_with_header" -%}
+{%- extends "simple/base.html" -%}
+{%- block header -%}
+  <div style="display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;border-bottom:1px solid var(--color-result-border,#ddd);">
+    <a href="{{ url_for('index') }}" style="display:inline-flex;align-items:center;gap:.4em;padding:.35em .9em;border-radius:8px;border:1px solid var(--color-result-border,#ddd);font-size:.88em;font-weight:500;text-decoration:none;color:var(--color-base-font,#444);background:var(--color-result-background,#fff);transition:background .15s,border-color .15s;" onmouseover="this.style.borderColor='var(--color-btn-background,#3050ff)'" onmouseout="this.style.borderColor='var(--color-result-border,#ddd)'">
+      <svg viewBox="0 0 512 512" width="15" height="15" fill="none" stroke="currentColor" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"><path d="M244 400 100 256l144-144M120 256h292"/></svg>
+      {{ _('Search') }}
+    </a>
+    <a href="{{ url_for('index') }}" style="font-size:1.3rem;font-weight:800;letter-spacing:-.02em;color:var(--color-base-font,#444);text-decoration:none;">Survival Search</a>
+  </div>
+{%- endblock -%}

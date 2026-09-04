@@ -1,0 +1,36 @@
+{% extends "simple/base.html" %}
+{% from 'simple/icons.html' import icon_big, icon_small %}
+{% block title %}{{ _('My recent searches') }} — {% endblock %}
+{% block content %}
+<div class="user-page">
+  <a href="{{ url_for('index') }}" class="btn-back-search">
+    <svg viewBox="0 0 512 512" width="15" height="15" fill="none" stroke="currentColor" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"><path d="M244 400 100 256l144-144M120 256h292"/></svg>
+    {{ _('Search') }}
+  </a>
+  <h1 class="user-page-title">
+    <svg viewBox="0 0 512 512" width="28" height="28" fill="none" stroke="currentColor" stroke-width="32" aria-hidden="true"><path d="M256 64C150 64 64 150 64 256s86 192 192 192 192-86 192-192S362 64 256 64z"/><path stroke-linecap="round" d="M256 144v112l80 48"/></svg>
+    {{ _('My recent searches') }}
+  </h1>
+
+  {% if history %}
+  <ul class="user-list">
+    {% for item in history %}
+    <li class="user-list-item">
+      <span class="user-list-icon" aria-hidden="true">
+        <svg viewBox="0 0 512 512" width="16" height="16" fill="none" stroke="currentColor" stroke-width="32"><path d="M256 64C150 64 64 150 64 256s86 192 192 192 192-86 192-192S362 64 256 64z"/><path stroke-linecap="round" d="M256 144v112l80 48"/></svg>
+      </span>
+      <a href="{{ url_for('search') }}?q={{ item.query|urlencode }}" class="user-list-link">{{ item.query|e }}</a>
+      <span class="user-list-meta">{{ item.searched_at }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  <div class="user-page-actions">
+    <form method="POST" action="{{ url_for('history_clear') }}">
+      <button type="submit" class="btn-clear">{{ _('Clear history') }}</button>
+    </form>
+  </div>
+  {% else %}
+  <p class="user-page-empty">{{ _('No searches recorded yet.') }}</p>
+  {% endif %}
+</div>
+{% endblock %}

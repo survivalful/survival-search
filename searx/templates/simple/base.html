@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html class="no-js theme-{{ preferences.get_value('simple_style') or 'auto' }} center-alignment-{{ preferences.get_value('center_alignment') and 'yes' or 'no' }}" lang="{{ locale_rfc5646 }}" {% if rtl %} dir="rtl"{% endif %}>
+<head>
+  <meta charset="UTF-8">
+  <meta name="endpoint" content="{{ endpoint }}">
+  <meta name="description" content="Survival Search — privacy-respecting search, powered by SearXNG">
+  <meta name="keywords" content="Survival Search, search, search engine, privacy, metasearch">
+  <meta name="generator" content="searxng/{{ searxng_version }}">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noarchive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% endblock %}{{ instance_name }}</title>
+  <script type="module" src="{{ url_for('static', filename='sxng-core.min.js') }}" client_settings="{{ client_settings }}"></script>
+  {% block meta %}{% endblock %}
+  {% if rtl %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='sxng-rtl.min.css') }}" type="text/css" media="screen">
+  {% else %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='sxng-ltr.min.css') }}" type="text/css" media="screen">
+  {% endif %}
+  {% if get_setting('server.limiter') or get_setting('server.public_instance') %}
+  <link rel="stylesheet" href="{{ url_for('client_token', token=link_token) }}" type="text/css">
+  {% endif %}
+  {% block head %}
+  <link title="{{ instance_name }}" type="application/opensearchdescription+xml" rel="search" href="{{ opensearch_url }}">
+  {% endblock %}
+  {% if current_user and oidc_enabled %}
+  <script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+      const qInput = document.getElementById('q');
+      const acList = document.querySelector('.autocomplete ul');
+      const acBox  = document.querySelector('.autocomplete');
+      if (!qInput || !acList || !acBox) return;
+
+      const CLOCK_SVG = `<svg viewBox="0 0 512 512" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="32"><path d="M256 64C150 64 64 150 64 256s86 192 192 192 192-86 192-192S362 64 256 64z"/><path stroke-linecap="round" d="M256 144v112l80 48"/></svg>`;
+
+      let cache = null;
+
+      async function fetchHistory() {
+        if (cache !== null) return cache;
+        try {
+          const r = await fetch('/history/suggest');
+          cache = await r.json();
+        } catch (_) { cache = []; }
+        return cache;
+      }
+
+      function renderHistory(items) {
+        acList.querySelectorAll('[data-history-item]').forEach(el => el.remove());
+        if (!items.length) return;
+
+        const frag = document.createDocumentFragment();
+
+        const header = document.createElement('li');
+        header.className = 'history-dropdown-header';
+        header.setAttribute('aria-hidden', 'true');
+        header.textContent = 'Letzte Suchen';
+        frag.append(header);
+
+        for (const q of items) {
+          const li = document.createElement('li');
+          li.dataset.historyItem = '1';
+          li.className = 'history-dropdown-item';
+
+          const iconWrap = document.createElement('span');
+          iconWrap.className = 'history-dropdown-icon';
+          iconWrap.innerHTML = CLOCK_SVG;
+
+          const text = document.createElement('span');
+          text.className = 'history-dropdown-text';
+          text.textContent = q;
+
+          li.append(iconWrap, text);
+          li.addEventListener('mousedown', e => {
+            e.preventDefault();
+            qInput.value = q;
+            document.querySelector('#search')?.submit();
+          });
+          frag.append(li);
+        }
+
+        acList.prepend(frag);
+        acBox.classList.add('open');
+      }
+
+      qInput.addEventListener('focus', async () => {
+        if (qInput.value.length < 2) renderHistory(await fetchHistory());
+      });
+
+      qInput.addEventListener('input', async () => {
+        if (qInput.value.length === 0) {
+          renderHistory(await fetchHistory());
+        } else {
+          acList.querySelectorAll('[data-history-item], .history-dropdown-header').forEach(el => el.remove());
+        }
+      });
+    });
+  </script>
+  {% endif %}
+  <style>
+    /* ── History-Dropdown ─────────────────────────────────── */
+    .history-dropdown-header {
+      padding: .35rem 1rem .2rem;
+      font-size: .72em;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      opacity: .45;
+      cursor: default;
+      pointer-events: none;
+      border-bottom: 1px solid var(--color-autocomplete-border, #ddd);
+      margin-bottom: .2rem;
+    }
+    .history-dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: .55em;
+    }
+    .history-dropdown-icon {
+      flex-shrink: 0;
+      opacity: .4;
+      display: flex;
+      align-items: center;
+    }
+    .history-dropdown-text {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* ── User-Seiten (History & Favoriten) ────────────────── */
+    .user-page {
+      max-width: 780px;
+      margin: 2.5em auto;
+      padding: 0 1.2em;
+    }
+    .user-page-title {
+      display: flex;
+      align-items: center;
+      gap: .5em;
+      font-size: 1.35em;
+      font-weight: 700;
+      margin-bottom: 1.4em;
+      padding-bottom: .6em;
+      border-bottom: 2px solid var(--color-result-border, #ddd);
+    }
+    .user-page-title svg { opacity: .7; }
+    .user-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: .5em;
+    }
+    .user-list-item {
+      display: flex;
+      align-items: center;
+      gap: .8em;
+      padding: .7em 1em;
+      border-radius: 10px;
+      border: 1px solid var(--color-result-border, #ddd);
+      background: var(--color-result-background, #fff);
+      transition: box-shadow .15s, border-color .15s;
+    }
+    .user-list-item:hover {
+      border-color: var(--color-btn-background, #3050ff);
+      box-shadow: 0 2px 10px rgba(48,80,255,.1);
+    }
+    .user-list-icon {
+      flex-shrink: 0;
+      opacity: .35;
+      display: flex;
+      align-items: center;
+    }
+    .user-list-link {
+      flex: 1;
+      font-weight: 500;
+      color: var(--color-url-font, #334999);
+      text-decoration: none;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .user-list-link:hover { text-decoration: underline; }
+    .user-list-meta {
+      font-size: .78em;
+      opacity: .5;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .user-page-empty {
+      text-align: center;
+      padding: 3em 0;
+      opacity: .45;
+      font-size: 1.05em;
+    }
+    .user-page-actions {
+      margin-top: 1.8em;
+      display: flex;
+      gap: .6em;
+    }
+    .btn-clear {
+      background: none;
+      border: 1px solid var(--color-result-border, #ccc);
+      border-radius: 8px;
+      padding: .4em 1em;
+      cursor: pointer;
+      font-size: .85em;
+      opacity: .7;
+      transition: opacity .15s, border-color .15s;
+    }
+    .btn-clear:hover {
+      opacity: 1;
+      border-color: var(--color-error, #db3434);
+      color: var(--color-error, #db3434);
+    }
+    .btn-remove {
+      background: none;
+      border: none;
+      padding: .3em .4em;
+      cursor: pointer;
+      opacity: .3;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      transition: opacity .15s, background .15s;
+      flex-shrink: 0;
+    }
+    .btn-remove:hover {
+      opacity: 1;
+      background: var(--color-error-background, #fae1e1);
+      color: var(--color-error, #db3434);
+    }
+    .favorite-remove-form { display: contents; }
+
+    /* ── Favoriten-Button bei Suchergebnissen ─────────────── */
+    .favorite-action { margin: .4em 0 .15em; }
+    .btn-favorite {
+      background: none;
+      border: 1px solid var(--color-result-border, #ddd);
+      border-radius: 20px;
+      padding: .2em .75em .2em .55em;
+      cursor: pointer;
+      font-size: .78em;
+      color: var(--color-result-engines-font, #545454);
+      display: inline-flex;
+      align-items: center;
+      gap: .3em;
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .btn-favorite svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .btn-favorite:hover {
+      background: var(--color-btn-background, #3050ff);
+      border-color: var(--color-btn-background, #3050ff);
+      color: var(--color-btn-font, #fff);
+    }
+
+    /* ── App-Header ───────────────────────────────────────── */
+    #links_on_top {
+      display: flex;
+      align-items: center;
+      gap: .25em;
+      padding: .55em 1.2em;
+      border-bottom: 1px solid var(--color-header-border, #ddd);
+      background: var(--color-header-background, #fdfbff);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    #links_on_top .nav-spacer { flex: 1; }
+    #links_on_top a {
+      display: inline-flex;
+      align-items: center;
+      gap: .3em;
+      padding: .38em .75em;
+      border-radius: 8px;
+      font-size: .88em;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--color-base-font, #444);
+      transition: background .15s, color .15s;
+      white-space: nowrap;
+    }
+    #links_on_top a svg { width: 17px; height: 17px; flex-shrink: 0; }
+    #links_on_top a:hover {
+      background: var(--color-autocomplete-background-hover, #e3e3e3);
+    }
+    /* Login-Button prominent */
+    .nav-btn-login {
+      background: var(--color-btn-background, #3050ff) !important;
+      color: var(--color-btn-font, #fff) !important;
+      padding: .4em 1.1em !important;
+      font-weight: 600 !important;
+    }
+    .nav-btn-login:hover {
+      opacity: .88;
+      background: var(--color-btn-background, #3050ff) !important;
+    }
+    /* User-Chip (Name + Logout) */
+    .nav-user-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .4em;
+      padding: .32em .85em !important;
+      border: 1px solid var(--color-header-border, #ddd) !important;
+      border-radius: 20px !important;
+      font-size: .85em !important;
+    }
+    .nav-user-chip .nav-avatar {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--color-btn-background, #3050ff);
+      color: var(--color-btn-font, #fff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .72em;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    /* Dezente Trennlinie zwischen Nav-Gruppen */
+    .nav-divider {
+      width: 1px;
+      height: 18px;
+      background: var(--color-header-border, #ddd);
+      margin: 0 .3em;
+      flex-shrink: 0;
+    }
+    /* Zurück-zur-Suche Button */
+    .btn-back-search {
+      display: inline-flex;
+      align-items: center;
+      gap: .4em;
+      padding: .35em .9em;
+      border-radius: 8px;
+      border: 1px solid var(--color-result-border, #ddd);
+      font-size: .88em;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--color-base-font, #444);
+      background: var(--color-result-background, #fff);
+      margin-bottom: 1.2em;
+      transition: border-color .15s, background .15s;
+    }
+    .btn-back-search:hover {
+      border-color: var(--color-btn-background, #3050ff);
+      color: var(--color-btn-background, #3050ff);
+    }
+    /* Survival Search Branding – searxng.png Hintergrundbild entfernen */
+    .index .title {
+      background: none !important;
+      min-height: auto !important;
+    }
+    .index .title h1 {
+      display: block !important;
+      visibility: visible !important;
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: var(--color-base-font, #444);
+      margin: 2rem auto 1rem;
+    }
+  </style>
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" sizes="any">
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/favicon.png') }}">
+  <link rel="manifest" href="{{ url_for('manifest') }}" />
+</head>
+<body class="{{ endpoint }}_endpoint" >
+  <nav id="links_on_top">
+    {%- from 'simple/icons.html' import icon_big -%}
+
+    {%- if donation_url and (not oidc_enabled or current_user) -%}
+      <a href="{{ donation_url }}" class="link_on_top_donate">{{ icon_big('heart') }}<span>{{ _('Donate') }}</span></a>
+    {%- endif -%}
+
+    <span class="nav-spacer"></span>
+
+    {%- if oidc_enabled -%}
+      {%- if current_user -%}
+        <a href="{{ url_for('history') }}" class="link_on_top_history">
+          <svg viewBox="0 0 512 512" fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round"><path d="M256 64C150 64 64 150 64 256s86 192 192 192 192-86 192-192S362 64 256 64z"/><path d="M256 144v112l80 48"/></svg>
+          <span>{{ _('My searches') }}</span>
+        </a>
+        <a href="{{ url_for('favorites') }}" class="link_on_top_favorites">
+          <svg viewBox="0 0 512 512" fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"><path d="M380.93 57.37A32 32 0 0 0 358.3 48H94.22A46.21 46.21 0 0 0 48 94.22v323.56A46.21 46.21 0 0 0 94.22 464h323.56A46.36 46.36 0 0 0 464 417.78V153.7a32 32 0 0 0-9.37-22.63ZM256 416a64 64 0 1 1 64-64 63.92 63.92 0 0 1-64 64m48-224H112a16 16 0 0 1-16-16v-64a16 16 0 0 1 16-16h192a16 16 0 0 1 16 16v64a16 16 0 0 1-16 16"/></svg>
+          <span>{{ _('My favorites') }}</span>
+        </a>
+        <span class="nav-divider"></span>
+        {%- if request.args.get('preferences') -%}
+          <a href="{{ url_for('preferences') }}?preferences={{ request.args.get('preferences') }}&preferences_preview_only=true" class="link_on_top_preferences">{{ icon_big('settings') }}<span>{{ _('Preferences') }}</span></a>
+        {%- else -%}
+          <a href="{{ url_for('preferences') }}" class="link_on_top_preferences">{{ icon_big('settings') }}<span>{{ _('Preferences') }}</span></a>
+        {%- endif -%}
+        <a href="{{ url_for('logout') }}" class="link_on_top_logout nav-user-chip">
+          <span class="nav-avatar">{{ current_user.name[:1]|upper }}</span>
+          <span>{{ current_user.name }}</span>
+        </a>
+      {%- else -%}
+        <a href="{{ url_for('login') }}" class="link_on_top_login nav-btn-login">
+          <svg viewBox="0 0 512 512" fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z"/><path d="M256 304c-87 0-175.3 48-191.64 138.6C62.39 453.52 68.57 464 80 464h352c11.44 0 17.62-10.48 15.65-21.4C431.3 352 343 304 256 304z"/></svg>
+          <span>{{ _('Login') }}</span>
+        </a>
+      {%- endif -%}
+    {%- else -%}
+      {%- if request.args.get('preferences') -%}
+        <a href="{{ url_for('preferences') }}?preferences={{ request.args.get('preferences') }}&preferences_preview_only=true" class="link_on_top_preferences">{{ icon_big('settings') }}<span>{{ _('Preferences') }}</span></a>
+      {%- else -%}
+        <a href="{{ url_for('preferences') }}" class="link_on_top_preferences">{{ icon_big('settings') }}<span>{{ _('Preferences') }}</span></a>
+      {%- endif -%}
+    {%- endif -%}
+  </nav>
+
+  <main id="main_{{  self._TemplateReference__context.name|replace("simple/", "")|replace(".html", "") }}" class="{{body_class}}">
+    {% if errors %}
+        <div class="dialog-error" role="alert">
+            <a href="#" class="close" aria-label="close" title="close">×</a>
+            <ul>
+            {% for message in errors %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    {% block header %}
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+  </main>
+  <footer>
+    <p>
+    {{ _('Powered by') }} <a href="{{ url_for('info', pagename='about') }}">SearXNG</a> - {{ searxng_version }} — {{ _('a privacy-respecting, open metasearch engine') }}<br>
+        <a href="{{ searxng_git_url }}">{{ _('Source code') }}</a>
+        | <a href="{{ get_setting('brand.issue_url') }}">{{ _('Issue tracker') }}</a>
+        {% if enable_metrics %}| <a href="{{ url_for('stats') }}">{{ _('Engine stats') }}</a>{% endif %}
+        {% if get_setting('brand.public_instances') %}
+        | <a href="{{ get_setting('brand.public_instances') }}">{{ _('Public instances') }}</a>
+        {% endif %}
+        {% if get_setting('general.privacypolicy_url') %}
+        | <a href="{{ get_setting('general.privacypolicy_url') }}">{{ _('Privacy policy') }}</a>
+        {% endif %}
+        {% if get_setting('general.contact_url') %}
+        | <a href="{{ get_setting('general.contact_url') }}">{{ _('Contact instance maintainer') }}</a>
+        {% endif %}
+        {% for title, link in get_setting('brand.custom.links').items() %}
+        | <a href="{{ link }}">{{ _(title) }}</a>
+        {% endfor %}
+    </p>
+  </footer>
+</body>
+</html>

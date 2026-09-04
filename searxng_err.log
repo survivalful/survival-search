@@ -1,0 +1,507 @@
+INFO    searx                         : max_request_timeout=None
+ERROR   searx                         : Error while getting the version: fatal: not a git repository (or any of the parent directories): .git
+
+ERROR   searx                         : Error while getting the git URL & branch: fatal: not a git repository (or any of the parent directories): .git
+
+INFO    searx                         : version: 1.0.0
+DEBUG   asyncio                       : Using proactor: IocpProactor
+DEBUG   searx.data                    : init searx.data.ENGINE_DESCRIPTIONS
+DEBUG   searx.data                    : init searx.data.USER_AGENTS
+DEBUG   searx.data                    : init searx.data.ENGINE_TRAITS
+DEBUG   searx.data                    : init searx.data.EXTERNAL_BANGS
+DEBUG   searx.webapp                  : static directory is C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\static
+DEBUG   searx.webapp                  : templates directory is C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\templates
+DEBUG   searx.sqlitedb                : [19276] ExpireCacheSQLite(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : init DB: C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db
+DEBUG   searx.sqlitedb                : init properties of DB: C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db
+DEBUG   searx.sqlitedb                : [19276] SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [19276] DBSession: SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) --> created new connection
+DEBUG   searx.sqlitedb                : DB_SCHEMA = 1
+DEBUG   searx.sqlitedb                : [19276] ExpireCacheSQLite(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : init DB: C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db
+DEBUG   searx.sqlitedb                : init properties of DB: C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db
+DEBUG   searx.sqlitedb                : [19276] SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [19276] DBSession: SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) --> created new connection
+DEBUG   searx.sqlitedb                : DB_SCHEMA = 1
+DEBUG   searx.favicons                : load favicon config: C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\favicons\favicons.toml
+DEBUG   searx.data                    : init searx.data.LOCALES
+DEBUG   searx.plugins.calculator      : plugin has been loaded
+DEBUG   searx.plugins.infiniteScroll  : plugin has been loaded
+DEBUG   searx.plugins.hash_plugin     : plugin has been loaded
+DEBUG   searx.plugins.self_info       : plugin has been loaded
+DEBUG   searx.plugins.unit_converter  : plugin has been loaded
+DEBUG   searx.plugins.ahmia_filter    : plugin has been loaded
+DEBUG   searx.plugins.hostnames       : plugin has been loaded
+DEBUG   searx.plugins.time_zone       : plugin has been loaded
+DEBUG   searx.plugins.oa_doi_rewrite  : plugin has been loaded
+DEBUG   searx.plugins.tor_check       : plugin has been loaded
+DEBUG   searx.plugins.tracker_url_remo: plugin has been loaded
+ERROR   searx.engines                 : (PID 26216) ahmia: can't register engine (loading engine failed)
+ERROR   searx.engines                 : Cannot load engine "bilibili"
+Traceback (most recent call last):
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\zoneinfo\_common.py", line 12, in load_tzdata
+    path = resources.files(package_name).joinpath(resource_name)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\importlib\resources\_common.py", line 46, in wrapper
+    return func(anchor)
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\importlib\resources\_common.py", line 56, in files
+    return from_package(resolve(anchor))
+                        ~~~~~~~^^^^^^^^
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\functools.py", line 982, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\importlib\resources\_common.py", line 82, in _
+    return importlib.import_module(cand)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1406, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1314, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1406, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1314, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1406, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1335, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tzdata'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\engines\__init__.py", line 132, in load_engine
+    engine = load_module(module_name + '.py', ENGINE_DIR)
+  File "C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\utils.py", line 430, in load_module
+    spec.loader.exec_module(module)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\engines\bilibili.py", line 43, in <module>
+    _CN_TZ = ZoneInfo("Asia/Shanghai")
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\zoneinfo\_common.py", line 29, in load_tzdata
+    raise ZoneInfoNotFoundError(f"No time zone found with key {key}")
+zoneinfo._common.ZoneInfoNotFoundError: 'No time zone found with key Asia/Shanghai'
+ERROR   searx.engines                 : (PID 26216) bilibili: can't register engine (loading engine failed)
+DEBUG   searx.data                    : init searx.data.WIKIDATA_UNITS
+DEBUG   searx.data                    : init searx.data.EXTERNAL_URLS
+DEBUG   searx.data                    : init searx.data.OSM_KEYS_TAGS
+ERROR   searx.engines                 : (PID 26216) torch: can't register engine (loading engine failed)
+DEBUG   searx.sqlitedb                : [21908] ExpireCacheSQLite(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.botdetection.config     : load schema file: C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\limiter.toml
+WARNING searx.botdetection.config     : missing config file: \etc\searxng\limiter.toml
+INFO    searx.oidc                    : OIDC enabled, discovery: https://auth.survivalful.de/application/o/suchmaschiene/.well-known/openid-configuration
+DEBUG   searx.sqlitedb                : [19276] UserDB(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [21908] DBSession: ExpireCacheSQLite(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) --> created new connection
+DEBUG   searx.engines.radio browser   : STATE: being initialized by PID 18408
+DEBUG   searx.sqlitedb                : init DB: C:/Users/fabia/AppData/Local/Temp/searxng_users.db
+DEBUG   searx.sqlitedb                : init properties of DB: C:/Users/fabia/AppData/Local/Temp/searxng_users.db
+DEBUG   searx.sqlitedb                : [19276] SQLiteProperties(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [19276] DBSession: SQLiteProperties(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) --> created new connection
+DEBUG   searx.sqlitedb                : DB_SCHEMA = 1
+DEBUG   searx.webapp                  : run local development server (DEBUG) on 127.0.0.1:8888
+INFO    werkzeug                      : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8888
+INFO    werkzeug                      : [33mPress CTRL+C to quit[0m
+INFO    werkzeug                      :  * Restarting with stat
+INFO    searx                         : max_request_timeout=None
+ERROR   searx                         : Error while getting the version: fatal: not a git repository (or any of the parent directories): .git
+
+ERROR   searx                         : Error while getting the git URL & branch: fatal: not a git repository (or any of the parent directories): .git
+
+INFO    searx                         : version: 1.0.0
+DEBUG   asyncio                       : Using proactor: IocpProactor
+DEBUG   searx.data                    : init searx.data.ENGINE_DESCRIPTIONS
+DEBUG   searx.data                    : init searx.data.USER_AGENTS
+DEBUG   searx.data                    : init searx.data.ENGINE_TRAITS
+DEBUG   searx.data                    : init searx.data.EXTERNAL_BANGS
+DEBUG   searx.webapp                  : static directory is C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\static
+DEBUG   searx.webapp                  : templates directory is C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\templates
+DEBUG   searx.sqlitedb                : [10500] ExpireCacheSQLite(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : init DB: C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db
+DEBUG   searx.sqlitedb                : init properties of DB: C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db
+DEBUG   searx.sqlitedb                : [10500] SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [10500] DBSession: SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) --> created new connection
+DEBUG   searx.sqlitedb                : DB_SCHEMA = 1
+DEBUG   searx.sqlitedb                : [10500] ExpireCacheSQLite(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : init DB: C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db
+DEBUG   searx.sqlitedb                : init properties of DB: C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db
+DEBUG   searx.sqlitedb                : [10500] SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [10500] DBSession: SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) --> created new connection
+DEBUG   searx.sqlitedb                : DB_SCHEMA = 1
+DEBUG   searx.favicons                : load favicon config: C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\favicons\favicons.toml
+DEBUG   searx.data                    : init searx.data.LOCALES
+DEBUG   searx.plugins.calculator      : plugin has been loaded
+DEBUG   searx.plugins.infiniteScroll  : plugin has been loaded
+DEBUG   searx.plugins.hash_plugin     : plugin has been loaded
+DEBUG   searx.plugins.self_info       : plugin has been loaded
+DEBUG   searx.plugins.unit_converter  : plugin has been loaded
+DEBUG   searx.plugins.ahmia_filter    : plugin has been loaded
+DEBUG   searx.plugins.hostnames       : plugin has been loaded
+DEBUG   searx.plugins.time_zone       : plugin has been loaded
+DEBUG   searx.plugins.oa_doi_rewrite  : plugin has been loaded
+DEBUG   searx.plugins.tor_check       : plugin has been loaded
+DEBUG   searx.plugins.tracker_url_remo: plugin has been loaded
+ERROR   searx.engines                 : (PID 4188) ahmia: can't register engine (loading engine failed)
+ERROR   searx.engines                 : Cannot load engine "bilibili"
+Traceback (most recent call last):
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\zoneinfo\_common.py", line 12, in load_tzdata
+    path = resources.files(package_name).joinpath(resource_name)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\importlib\resources\_common.py", line 46, in wrapper
+    return func(anchor)
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\importlib\resources\_common.py", line 56, in files
+    return from_package(resolve(anchor))
+                        ~~~~~~~^^^^^^^^
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\functools.py", line 982, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\importlib\resources\_common.py", line 82, in _
+    return importlib.import_module(cand)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1406, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1314, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1406, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1314, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1406, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1335, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tzdata'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\engines\__init__.py", line 132, in load_engine
+    engine = load_module(module_name + '.py', ENGINE_DIR)
+  File "C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\utils.py", line 430, in load_module
+    spec.loader.exec_module(module)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\engines\bilibili.py", line 43, in <module>
+    _CN_TZ = ZoneInfo("Asia/Shanghai")
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\zoneinfo\_common.py", line 29, in load_tzdata
+    raise ZoneInfoNotFoundError(f"No time zone found with key {key}")
+zoneinfo._common.ZoneInfoNotFoundError: 'No time zone found with key Asia/Shanghai'
+ERROR   searx.engines                 : (PID 4188) bilibili: can't register engine (loading engine failed)
+DEBUG   searx.data                    : init searx.data.WIKIDATA_UNITS
+DEBUG   searx.data                    : init searx.data.EXTERNAL_URLS
+DEBUG   searx.data                    : init searx.data.OSM_KEYS_TAGS
+ERROR   searx.engines                 : (PID 4188) torch: can't register engine (loading engine failed)
+DEBUG   searx.sqlitedb                : [25352] ExpireCacheSQLite(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.botdetection.config     : load schema file: C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\limiter.toml
+WARNING searx.botdetection.config     : missing config file: \etc\searxng\limiter.toml
+INFO    searx.oidc                    : OIDC enabled, discovery: https://auth.survivalful.de/application/o/suchmaschiene/.well-known/openid-configuration
+DEBUG   searx.sqlitedb                : [10500] UserDB(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [25352] DBSession: ExpireCacheSQLite(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) --> created new connection
+DEBUG   searx.engines.radio browser   : STATE: being initialized by PID 18408
+DEBUG   searx.sqlitedb                : init DB: C:/Users/fabia/AppData/Local/Temp/searxng_users.db
+DEBUG   searx.sqlitedb                : init properties of DB: C:/Users/fabia/AppData/Local/Temp/searxng_users.db
+DEBUG   searx.sqlitedb                : [10500] SQLiteProperties(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [10500] DBSession: SQLiteProperties(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) --> created new connection
+DEBUG   searx.sqlitedb                : DB_SCHEMA = 1
+DEBUG   searx.webapp                  : run local development server (DEBUG) on 127.0.0.1:8888
+WARNING werkzeug                      :  * Debugger is active!
+INFO    werkzeug                      :  * Debugger PIN: 128-504-269
+ERROR   searx.botdetection            : X-Forwarded-For nor X-Real-IP header is set!
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale en (from browser)
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:27] "GET /healthz HTTP/1.1" 200 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   searx.webapp                  : http%3A//127.0.0.1%3A8888/ uses locale `de`
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:36] "GET / HTTP/1.1" 200 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:36] "GET /static/themes/simple/sxng-core.min.js HTTP/1.1" 200 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:36] "GET /static/themes/simple/sxng-ltr.min.css HTTP/1.1" 200 -
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   searx.webapp                  : http%3A//127.0.0.1%3A8888/manifest.json uses locale `de`
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:36] "GET /manifest.json HTTP/1.1" 200 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:36] "GET /static/themes/simple/chunk/CX4Qzp80.min.js HTTP/1.1" 200 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:36] "GET /static/themes/simple/chunk/DK4yUVpy.min.js HTTP/1.1" 200 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:36] "GET /static/themes/simple/chunk/5Ako-qGW.min.js HTTP/1.1" 200 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:36] "GET /static/themes/simple/chunk/DcK-mo-Y.min.js HTTP/1.1" 200 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:36] "GET /static/themes/simple/chunk/Bs-FMxfE.min.js HTTP/1.1" 200 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:36] "GET /static/themes/simple/img/searxng.png HTTP/1.1" 200 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:37] "GET /static/themes/simple/img/favicon.svg HTTP/1.1" 200 -
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   searx.sqlitedb                : [25304] UserDB(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [25304] DBSession: UserDB(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) --> created new connection
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:37] "GET /history/suggest HTTP/1.1" 200 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:37] "[36mGET /static/themes/simple/img/favicon.png HTTP/1.1[0m" 304 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   searx.webapp                  : http%3A//127.0.0.1%3A8888/ uses locale `de`
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:41] "GET / HTTP/1.1" 200 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   searx.sqlitedb                : [13520] UserDB(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   searx.webapp                  : http%3A//127.0.0.1%3A8888/manifest.json uses locale `de`
+DEBUG   searx.sqlitedb                : [13520] DBSession: UserDB(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) --> created new connection
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:42] "GET /manifest.json HTTP/1.1" 200 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:42] "GET /history/suggest HTTP/1.1" 200 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   searx.engines.wikipedia       : HTTP Accept-Language: de,de-DE;q=0.7,en;q=0.3
+DEBUG   searx.engines.currency        : HTTP Accept-Language: de,de-DE;q=0.7,en;q=0.3
+DEBUG   searx.engines.wikidata        : HTTP Accept-Language: de,de-DE;q=0.7,en;q=0.3
+DEBUG   searx.engines.duckduckgo      : HTTP Accept-Language: de,de-DE;q=0.7,en;q=0.3
+DEBUG   searx.engines.google cse      : HTTP Accept-Language: de,de-DE;q=0.7,en;q=0.3
+DEBUG   searx.engines.lingva          : HTTP Accept-Language: de,de-DE;q=0.7,en;q=0.3
+DEBUG   searx.engines.startpage       : HTTP Accept-Language: de,de-DE;q=0.7,en;q=0.3
+DEBUG   searx.engines.dictzone        : HTTP Accept-Language: de,de-DE;q=0.7,en;q=0.3
+DEBUG   searx.engines.mymemory transla: HTTP Accept-Language: de,de-DE;q=0.7,en;q=0.3
+DEBUG   searx.engines.brave           : HTTP Accept-Language: de,de-DE;q=0.7,en;q=0.3
+DEBUG   searx.search                  : actual_timeout=3.0 (default_timeout=3.0, ?timeout_limit=None, max_request_timeout=None)
+DEBUG   searx.engines.duckduckgo      : param headers: {'Accept-Language': 'de,de-DE;q=0.7,en;q=0.3', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:154.0) Gecko/20100101 Firefox/154.0', 'Sec-Fetch-Dest': 'document', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-User': '?1', 'Referer': 'https://html.duckduckgo.com/html/', 'Content-Type': 'application/x-www-form-urlencoded'}
+DEBUG   searx.engines.duckduckgo      : param data: {'q': 'youtube', 'b': '', 'kl': 'de-de'}
+DEBUG   searx.engines.duckduckgo      : param cookies: {'kl': 'de-de'}
+DEBUG   searx.engines.brave           : url https://search.brave.com/search?q=youtube&source=web
+DEBUG   searx.sqlitedb                : [11780] ExpireCacheSQLite(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\curl_cffi\aio.py:186: CurlCffiWarning: 
+    Proactor event loop does not implement add_reader family of methods required.
+    Registering an additional selector thread for add_reader support.
+    To avoid this warning use:
+        asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())
+    
+  self.loop = get_selector(
+DEBUG   searx.engines.wikidata        : request --> language de // len(attributes): 86
+DEBUG   searx.sqlitedb                : [2572] ExpireCacheSQLite(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.engines.brave           : cookies {'safesearch': 'off', 'useLocation': '0', 'summarizer': '0', 'country': 'de', 'ui_lang': 'de-de'}
+DEBUG   searx.sqlitedb                : [11780] DBSession: ExpireCacheSQLite(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) --> created new connection
+DEBUG   searx.sqlitedb                : [2572] DBSession: ExpireCacheSQLite(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) --> created new connection
+DEBUG   searx.engines.startpage       : get_sc_code: using cached value: 2sbbv9IndbAYqCHxZ6OYH1OsAp0ZkchYbssSMBmJVabVmvkkZuh7gdcp08ieMbLFY1sPkfCOvs7limDj5SS5WmonmalSKF8p
+DEBUG   searx.engines.startpage       : cookie preferences: date_timeEEEworldN1Ndisable_family_filterEEEnoneN1Ndisable_open_in_new_windowEEE0N1Nenable_post_methodEEE1N1Nenable_proxy_safety_suggestEEE1N1Nenable_stay_controlEEE1N1Ninstant_answersEEE1N1Nlang_homepageEEEs/device/en/N1Nnum_of_resultsEEE10N1NsuggestionsEEE1N1Nwt_unitEEEcelsiusN1NlanguageEEEdeutschN1Nlanguage_uiEEEdeutschN1Nsearch_results_regionEEEde_DE
+DEBUG   searx.engines.startpage       : data: {'query': 'youtube', 'cat': 'web', 't': 'device', 'sc': '2sbbv9IndbAYqCHxZ6OYH1OsAp0ZkchYbssSMBmJVabVmvkkZuh7gdcp08ieMbLFY1sPkfCOvs7limDj5SS5WmonmalSKF8p', 'with_date': '', 'abd': '1', 'abe': '1', 'qsr': 'all', 'qadf': 'none', 'language': 'deutsch', 'lui': 'deutsch'}
+DEBUG   searx.network.wikipedia       : HTTP Request: GET https://de.wikipedia.org/api/rest_v1/page/summary/Youtube "HTTP/2 200 " (application/json; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/Summary/1.5.0")
+DEBUG   searx.sqlitedb                : [18088] SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [18088] DBSession: SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) --> created new connection
+DEBUG   searx.network.google cse      : HTTP Request: GET https://cse.google.com/cse/element/v1?rsz=filtered_cse&num=20&hl=de&cselibv=93e57cb47c499c53&cx=partner-pub-8993703457585266%3A4862972284&q=youtube&safe=off&cse_tok=AHy-FZMwrXWj7wc6ndk6xtdhNMcO%3A1788550018991&callback=_&rurl=&searchtype=&gl=DE&exp=cc%2Csps%2Cesbfa "HTTP/3 200 " (application/javascript; charset=utf-8)
+DEBUG   searx.sqlitedb                : [11780] SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [11780] DBSession: SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) --> created new connection
+DEBUG   searx.result_types            : filter_urls: modify field thumbnail URL https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDIsz0EfHkuKX4fX-nqMf_yy0XQhWpAaRiwMwALZEfI976A2OTbpwaygw&s=0 -> https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRDIsz0EfHkuKX4fX-nqMf_yy0XQhWpAaRiwMwALZEfI976A2OTbpwaygw&s=0
+DEBUG   searx.network.brave           : HTTP Request: GET https://search.brave.com/search?q=youtube&source=web "HTTP/3 200 " (text/html; charset=utf-8)
+DEBUG   searx.result_types            : filter_urls: modify field thumbnail URL https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAGdDW5lGFiGOBf90u46-MVD3AKD6GKGxY_PdAAFpDJG2K8_4v5wBAxHuk&s -> https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQAGdDW5lGFiGOBf90u46-MVD3AKD6GKGxY_PdAAFpDJG2K8_4v5wBAxHuk
+DEBUG   searx.network.startpage       : HTTP Request: POST https://www.startpage.com/sp/search "HTTP/2 200 " (text/html; charset=utf-8)
+DEBUG   searx.sqlitedb                : [2572] SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [2572] DBSession: SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) --> created new connection
+DEBUG   searx.result_types            : filter_urls: modify field thumbnail URL https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsqTNeiWY19DxfLXoBeQFBmPIzjnYZCb-CeLYK0mDCf_MjdqacGv1CcZE&s -> https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSsqTNeiWY19DxfLXoBeQFBmPIzjnYZCb-CeLYK0mDCf_MjdqacGv1CcZE
+DEBUG   searx.result_types            : filter_urls: modify field thumbnail URL https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkv-BVqHAw_cfbn-htRJKQYbdPbNd4-8bgHVm6S_Z_tZAvPXaY0VoxTu4&s -> https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkv-BVqHAw_cfbn-htRJKQYbdPbNd4-8bgHVm6S_Z_tZAvPXaY0VoxTu4
+DEBUG   searx.result_types            : filter_urls: modify field thumbnail URL https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDO0WMlyotW6TewOjGgU5SpIZ66CpmYwMSimHlbWaYCG3CRAgaXU2KUmRF&s -> https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSDO0WMlyotW6TewOjGgU5SpIZ66CpmYwMSimHlbWaYCG3CRAgaXU2KUmRF
+DEBUG   searx.sqlitedb                : [18380] SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [18380] DBSession: SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) --> created new connection
+DEBUG   searx.result_types            : filter_urls: modify field thumbnail URL https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUm0DMJabdwA2IDIH2Wdi1Kfy2KX0CI7GRINXAsIoRI0Ev7icxknZq0C2i&s -> https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRUm0DMJabdwA2IDIH2Wdi1Kfy2KX0CI7GRINXAsIoRI0Ev7icxknZq0C2i
+DEBUG   searx.result_types            : filter_urls: modify field thumbnail URL https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNpgRwGPbq6uaZYBNQRLO3IJHSHjjopjy8XQNzLya-DpdA9_PaNJKrUnQ&s -> https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSNpgRwGPbq6uaZYBNQRLO3IJHSHjjopjy8XQNzLya-DpdA9_PaNJKrUnQ
+DEBUG   searx.result_types            : filter_urls: modify field thumbnail URL https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFYDkxeDciRtCT810GbuF7klHkZ2kyj1xXJBsdWcsQjSz2X30n_8s1f-6L&s -> https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSFYDkxeDciRtCT810GbuF7klHkZ2kyj1xXJBsdWcsQjSz2X30n_8s1f-6L
+DEBUG   searx.result_types            : filter_urls: modify field thumbnail URL https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuhusxK53_62_jdNyOZPdEe6OlKXZEfSKQHTTUV4Smav9M8-TEwpjV&s -> https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuhusxK53_62_jdNyOZPdEe6OlKXZEfSKQHTTUV4Smav9M8-TEwpjV
+DEBUG   searx.result_types            : filter_urls: modify field thumbnail URL https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg1JgjUe9ySbPR3NSTcSWeE-fs22-W7FBVvw9Fo2jQNYFF9JMgODms0AjR&s -> https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSg1JgjUe9ySbPR3NSTcSWeE-fs22-W7FBVvw9Fo2jQNYFF9JMgODms0AjR
+DEBUG   searx.result_types            : filter_urls: modify field thumbnail URL https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUIEf8Kov513e5UdOY2nhOrCLjIliAFkGm3ddlfg5YyvTtZncxOatPVxM&s -> https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRUIEf8Kov513e5UdOY2nhOrCLjIliAFkGm3ddlfg5YyvTtZncxOatPVxM
+DEBUG   searx.result_types            : filter_urls: modify field thumbnail URL https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTimwxRkr6Bu4tQloitFKSkF5Tv1dvMGdOXyNN2zpSbspem92PMxkPFMpQ&s -> https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTimwxRkr6Bu4tQloitFKSkF5Tv1dvMGdOXyNN2zpSbspem92PMxkPFMpQ
+DEBUG   searx.result_types            : filter_urls: modify field thumbnail URL https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkT-Udv5xU1aWH13nzFfgw2BUucl3tsVxoVO557eOJ3fiZv72TEgXgV0k&s -> https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkT-Udv5xU1aWH13nzFfgw2BUucl3tsVxoVO557eOJ3fiZv72TEgXgV0k
+DEBUG   searx.network.duckduckgo      : HTTP Request: POST https://html.duckduckgo.com/html/ "HTTP/2 200 " (text/html; charset=UTF-8)
+DEBUG   searx.sqlitedb                : [12216] SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [12216] DBSession: SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) --> created new connection
+DEBUG   searx.cache                   : ENGINES_CACHE -- eng_duckduckgo: key '2ad9e07945b4ab28c00812fabf8b01bcad9efd2d83f2b53cfefad11c2b1e5e16' updated or inserted (0 errors)
+DEBUG   searx.sqlitedb                : [12216] SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [12216] DBSession: SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) --> created new connection
+DEBUG   searx.network.wikidata        : HTTP Request: POST https://query.wikidata.org/sparql "HTTP/2 200 " (application/sparql-results+json;charset=utf-8)
+DEBUG   searx.engines.wikidata        : request --> language de // len(attributes): 86
+DEBUG   searx.data                    : init searx.data.WIKIDATA_PROPERTIES
+DEBUG   searx.sqlitedb                : [20324] SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [20324] DBSession: SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) --> created new connection
+DEBUG   searx.sqlitedb                : [26024] UserDB(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [26024] DBSession: UserDB(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) --> created new connection
+DEBUG   searx.webapp                  : http%3A//127.0.0.1%3A8888/search%3Fq%3Dyoutube%26category_general%3D1%26language%3Dauto%26time_range%3D%26safesearch%3D0%26theme%3Dsimple uses locale `de`
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:44] "GET /search?q=youtube&category_general=1&language=auto&time_range=&safesearch=0&theme=simple HTTP/1.1" 200 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:45] "[36mGET /static/themes/simple/chunk/BhYx0_Gb.min.js HTTP/1.1[0m" 304 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:45] "[36mGET /static/themes/simple/chunk/BuurKv-k.min.js HTTP/1.1[0m" 304 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:45] "[36mGET /static/themes/simple/chunk/od7pNHfk.min.js HTTP/1.1[0m" 304 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   searx.webapp                  : http%3A//127.0.0.1%3A8888/manifest.json uses locale `de`
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:45] "GET /manifest.json HTTP/1.1" 200 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:45] "[36mGET /static/themes/simple/img/img_load_error.svg HTTP/1.1[0m" 304 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale de (from browser)
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:48] "[32mGET /logout HTTP/1.1[0m" 302 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   searx.webapp                  : http%3A//127.0.0.1%3A8888/ uses locale `de`
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:48] "GET / HTTP/1.1" 200 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   searx.webapp                  : http%3A//127.0.0.1%3A8888/manifest.json uses locale `de`
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:48] "GET /manifest.json HTTP/1.1" 200 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   urllib3.connectionpool        : Starting new HTTPS connection (1): auth.survivalful.de:443
+DEBUG   urllib3.connectionpool        : https://auth.survivalful.de:443 "GET /application/o/suchmaschiene/.well-known/openid-configuration HTTP/1.1" 200 613
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:50] "[32mGET /login HTTP/1.1[0m" 302 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   urllib3.connectionpool        : Starting new HTTPS connection (1): auth.survivalful.de:443
+DEBUG   urllib3.connectionpool        : https://auth.survivalful.de:443 "POST /application/o/token/ HTTP/1.1" 200 2025
+DEBUG   urllib3.connectionpool        : Starting new HTTPS connection (1): auth.survivalful.de:443
+DEBUG   urllib3.connectionpool        : https://auth.survivalful.de:443 "GET /application/o/suchmaschiene/jwks/ HTTP/1.1" 200 None
+INFO    searx.webapp                  : OIDC login: admin@survivalful.de
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:53] "[32mGET /auth/callback?code=58a51e4fbaf7449ca5564db55540b9d2&state=dI48MmlflTAwDUhW4wQXKULvMMNdcL HTTP/1.1[0m" 302 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   searx.webapp                  : http%3A//127.0.0.1%3A8888/ uses locale `de`
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:53] "GET / HTTP/1.1" 200 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   searx.webapp                  : http%3A//127.0.0.1%3A8888/manifest.json uses locale `de`
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:53] "GET /manifest.json HTTP/1.1" 200 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   searx.sqlitedb                : [24228] UserDB(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [24228] DBSession: UserDB(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) --> created new connection
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 21:57:53] "GET /history/suggest HTTP/1.1" 200 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale en (from browser)
+DEBUG   searx.webapp                  : http%3A//127.0.0.1%3A8888/ uses locale `en`
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 22:02:41] "GET / HTTP/1.1" 200 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   searx.webapp                  : http%3A//127.0.0.1%3A8888/ uses locale `de`
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 22:02:58] "GET / HTTP/1.1" 200 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 22:02:58] "[36mGET /static/themes/simple/sxng-core.min.js HTTP/1.1[0m" 304 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 22:02:58] "[36mGET /static/themes/simple/sxng-ltr.min.css HTTP/1.1[0m" 304 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   searx.webapp                  : http%3A//127.0.0.1%3A8888/manifest.json uses locale `de`
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 22:02:58] "GET /manifest.json HTTP/1.1" 200 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 22:02:58] "[36mGET /static/themes/simple/chunk/CX4Qzp80.min.js HTTP/1.1[0m" 304 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 22:02:58] "[36mGET /static/themes/simple/chunk/DK4yUVpy.min.js HTTP/1.1[0m" 304 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 22:02:58] "[36mGET /static/themes/simple/chunk/5Ako-qGW.min.js HTTP/1.1[0m" 304 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 22:02:58] "[36mGET /static/themes/simple/chunk/Bs-FMxfE.min.js HTTP/1.1[0m" 304 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 22:02:58] "[36mGET /static/themes/simple/chunk/DcK-mo-Y.min.js HTTP/1.1[0m" 304 -
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 22:02:58] "[36mGET /static/themes/simple/img/searxng.png HTTP/1.1[0m" 304 -
+DEBUG   searx.botdetection            : final REMOTE_ADDR is: 127.0.0.1
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 22:02:58] "[36mGET /static/themes/simple/img/favicon.svg HTTP/1.1[0m" 304 -
+DEBUG   searx.webapp                  : set locale de (from browser)
+DEBUG   searx.sqlitedb                : [6236] UserDB(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 22:02:58] "[36mGET /static/themes/simple/img/favicon.png HTTP/1.1[0m" 304 -
+DEBUG   searx.sqlitedb                : [6236] DBSession: UserDB(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) --> created new connection
+INFO    werkzeug                      : 127.0.0.1 - - [04/Sep/2026 22:02:58] "GET /history/suggest HTTP/1.1" 200 -
+INFO    werkzeug                      :  * Detected change in 'C:\\Users\\fabia\\Downloads\\searxng-master\\searxng-master\\searx\\settings.yml', reloading
+INFO    werkzeug                      :  * Restarting with stat
+INFO    searx                         : max_request_timeout=None
+ERROR   searx                         : Error while getting the version: fatal: not a git repository (or any of the parent directories): .git
+
+ERROR   searx                         : Error while getting the git URL & branch: fatal: not a git repository (or any of the parent directories): .git
+
+INFO    searx                         : version: 1.0.0
+DEBUG   asyncio                       : Using proactor: IocpProactor
+DEBUG   searx.data                    : init searx.data.ENGINE_DESCRIPTIONS
+DEBUG   searx.data                    : init searx.data.USER_AGENTS
+DEBUG   searx.data                    : init searx.data.ENGINE_TRAITS
+DEBUG   searx.data                    : init searx.data.EXTERNAL_BANGS
+DEBUG   searx.webapp                  : static directory is C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\static
+DEBUG   searx.webapp                  : templates directory is C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\templates
+DEBUG   searx.sqlitedb                : [23484] ExpireCacheSQLite(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : init DB: C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db
+DEBUG   searx.sqlitedb                : init properties of DB: C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db
+DEBUG   searx.sqlitedb                : [23484] SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [23484] DBSession: SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_DATA_CACHE.db) --> created new connection
+DEBUG   searx.sqlitedb                : DB_SCHEMA = 1
+DEBUG   searx.sqlitedb                : [23484] ExpireCacheSQLite(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : init DB: C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db
+DEBUG   searx.sqlitedb                : init properties of DB: C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db
+DEBUG   searx.sqlitedb                : [23484] SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [23484] DBSession: SQLiteProperties(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) --> created new connection
+DEBUG   searx.sqlitedb                : DB_SCHEMA = 1
+DEBUG   searx.favicons                : load favicon config: C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\favicons\favicons.toml
+DEBUG   searx.data                    : init searx.data.LOCALES
+DEBUG   searx.plugins.calculator      : plugin has been loaded
+DEBUG   searx.plugins.infiniteScroll  : plugin has been loaded
+DEBUG   searx.plugins.hash_plugin     : plugin has been loaded
+DEBUG   searx.plugins.self_info       : plugin has been loaded
+DEBUG   searx.plugins.unit_converter  : plugin has been loaded
+DEBUG   searx.plugins.ahmia_filter    : plugin has been loaded
+DEBUG   searx.plugins.hostnames       : plugin has been loaded
+DEBUG   searx.plugins.time_zone       : plugin has been loaded
+DEBUG   searx.plugins.oa_doi_rewrite  : plugin has been loaded
+DEBUG   searx.plugins.tor_check       : plugin has been loaded
+DEBUG   searx.plugins.tracker_url_remo: plugin has been loaded
+ERROR   searx.engines                 : (PID 23960) ahmia: can't register engine (loading engine failed)
+ERROR   searx.engines                 : Cannot load engine "bilibili"
+Traceback (most recent call last):
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\zoneinfo\_common.py", line 12, in load_tzdata
+    path = resources.files(package_name).joinpath(resource_name)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\importlib\resources\_common.py", line 46, in wrapper
+    return func(anchor)
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\importlib\resources\_common.py", line 56, in files
+    return from_package(resolve(anchor))
+                        ~~~~~~~^^^^^^^^
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\functools.py", line 982, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\importlib\resources\_common.py", line 82, in _
+    return importlib.import_module(cand)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1406, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1314, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1406, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1314, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1406, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1335, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tzdata'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\engines\__init__.py", line 132, in load_engine
+    engine = load_module(module_name + '.py', ENGINE_DIR)
+  File "C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\utils.py", line 430, in load_module
+    spec.loader.exec_module(module)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\engines\bilibili.py", line 43, in <module>
+    _CN_TZ = ZoneInfo("Asia/Shanghai")
+  File "C:\Users\fabia\AppData\Local\Python\pythoncore-3.14-64\Lib\zoneinfo\_common.py", line 29, in load_tzdata
+    raise ZoneInfoNotFoundError(f"No time zone found with key {key}")
+zoneinfo._common.ZoneInfoNotFoundError: 'No time zone found with key Asia/Shanghai'
+ERROR   searx.engines                 : (PID 23960) bilibili: can't register engine (loading engine failed)
+DEBUG   searx.data                    : init searx.data.WIKIDATA_UNITS
+DEBUG   searx.data                    : init searx.data.EXTERNAL_URLS
+DEBUG   searx.data                    : init searx.data.OSM_KEYS_TAGS
+ERROR   searx.engines                 : (PID 23960) torch: can't register engine (loading engine failed)
+DEBUG   searx.sqlitedb                : [22996] ExpireCacheSQLite(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.botdetection.config     : load schema file: C:\Users\fabia\Downloads\searxng-master\searxng-master\searx\limiter.toml
+WARNING searx.botdetection.config     : missing config file: \etc\searxng\limiter.toml
+INFO    searx.oidc                    : OIDC enabled, discovery: https://auth.survivalful.de/application/o/suchmaschiene/.well-known/openid-configuration
+DEBUG   searx.sqlitedb                : [23484] UserDB(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [22996] DBSession: ExpireCacheSQLite(C:\Users\fabia\AppData\Local\Temp\sxng_cache_ENGINES_CACHE.db) --> created new connection
+DEBUG   searx.engines.radio browser   : STATE: being initialized by PID 18408
+DEBUG   searx.sqlitedb                : init DB: C:/Users/fabia/AppData/Local/Temp/searxng_users.db
+DEBUG   searx.sqlitedb                : init properties of DB: C:/Users/fabia/AppData/Local/Temp/searxng_users.db
+DEBUG   searx.sqlitedb                : [23484] SQLiteProperties(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) {'timeout': 3.0, 'check_same_thread': False, 'cached_statements': 0} // WAL
+DEBUG   searx.sqlitedb                : [23484] DBSession: SQLiteProperties(C:/Users/fabia/AppData/Local/Temp/searxng_users.db) --> created new connection
+DEBUG   searx.sqlitedb                : DB_SCHEMA = 1
+DEBUG   searx.webapp                  : run local development server (DEBUG) on 127.0.0.1:8888
+WARNING werkzeug                      :  * Debugger is active!
+INFO    werkzeug                      :  * Debugger PIN: 128-504-269
