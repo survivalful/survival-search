@@ -1787,6 +1787,39 @@ msgstr "Video anzeigen"
 msgid "hide video"
 msgstr "Video verstecken"
 
+msgid "My favorites"
+msgstr "Meine Favoriten"
+
+msgid "My recent searches"
+msgstr "Meine letzten Suchen"
+
+msgid "My searches"
+msgstr "Meine Suchen"
+
+msgid "No favorites saved yet."
+msgstr "Noch keine Favoriten gespeichert."
+
+msgid "No searches recorded yet."
+msgstr "Noch keine Suchen aufgezeichnet."
+
+msgid "Clear history"
+msgstr "Verlauf löschen"
+
+msgid "Remove"
+msgstr "Entfernen"
+
+msgid "Save to favorites"
+msgstr "Zu Favoriten hinzufügen"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Login"
+msgstr "Anmelden"
+
+msgid "Search"
+msgstr "Suche"
+
 #~ msgid "Engine time (sec)"
 #~ msgstr "Suchmaschinen Zeit (sek)"
 
