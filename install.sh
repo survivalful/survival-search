@@ -63,6 +63,11 @@ mkdir -p "${DATA_DIR}"
 chown "${APP_USER}:${APP_USER}" "${DATA_DIR}"
 chmod 750 "${DATA_DIR}"
 
+# Create settings.yml from example if it doesn't exist yet
+if [ ! -f "${APP_DIR}/searx/settings.yml" ]; then
+    cp "${APP_DIR}/searx/settings.example.yml" "${APP_DIR}/searx/settings.yml"
+fi
+
 # Fix userdb path in settings.yml (idempotent)
 sed -i 's|userdb_path: "/tmp/searxng_users.db"|userdb_path: "/var/lib/survival-search/users.db"|' \
     "${APP_DIR}/searx/settings.yml"

@@ -24,6 +24,9 @@ gh-pages/
 .idea/
 
 searx/version_frozen.py
+
+# Instance-specific config — never overwrite on git pull
+searx/settings.yml
 .dir-locals.el
 
 .python-version
