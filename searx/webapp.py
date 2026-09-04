@@ -7,6 +7,7 @@ import json
 import os
 import sys
 import base64
+from datetime import timedelta
 
 from timeit import default_timer
 from html import escape
@@ -152,6 +153,7 @@ app.jinja_env.lstrip_blocks = True
 app.jinja_env.add_extension('jinja2.ext.loopcontrols')  # pylint: disable=no-member
 app.jinja_env.filters['group_engines_in_tab'] = group_engines_in_tab  # pylint: disable=no-member
 app.secret_key = settings['server']['secret_key']
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=30)
 
 
 def get_locale():
@@ -1376,6 +1378,7 @@ def auth_callback():
         flask.abort(404)
     try:
         user = oidc_module.complete_login()
+        flask.session.permanent = True
         flask.session['oidc_user'] = user
         logger.info("OIDC login: %s", user.get('email') or user['sub'])
     except Exception as e:  # pylint: disable=broad-except
