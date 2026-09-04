@@ -30,9 +30,16 @@ def get_userdb() -> "UserDB":
 class UserDB(SQLiteAppl):
     """Stores search history and favorites, keyed by the OIDC ``sub`` claim."""
 
-    DB_SCHEMA: int = 1
+    DB_SCHEMA: int = 2
 
     DDL_CREATE_TABLES: dict[str, str] = {
+        "user_preferences": (
+            "CREATE TABLE IF NOT EXISTS user_preferences ("
+            "  user_id     TEXT PRIMARY KEY,"
+            "  preferences TEXT NOT NULL,"
+            "  updated_at  INTEGER DEFAULT (strftime('%s', 'now'))"
+            ")"
+        ),
         "search_history": (
             "CREATE TABLE IF NOT EXISTS search_history ("
             "  id          INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -60,6 +67,26 @@ class UserDB(SQLiteAppl):
             " ON favorites(user_id, saved_at DESC)"
         ),
     }
+
+    # --- User Preferences -----------------------------------------------------
+
+    def get_preferences(self, user_id: str) -> str | None:
+        row = self.DB.execute(
+            "SELECT preferences FROM user_preferences WHERE user_id = ?",
+            (user_id,),
+        ).fetchone()
+        return row[0] if row else None
+
+    def save_preferences(self, user_id: str, preferences_data: str) -> None:
+        with self.DB:
+            self.DB.execute(
+                "INSERT INTO user_preferences (user_id, preferences, updated_at)"
+                " VALUES (?, ?, strftime('%s', 'now'))"
+                " ON CONFLICT(user_id) DO UPDATE SET"
+                "   preferences = excluded.preferences,"
+                "   updated_at  = excluded.updated_at",
+                (user_id, preferences_data),
+            )
 
     # --- Search History -------------------------------------------------------
 

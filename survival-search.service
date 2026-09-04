@@ -1,0 +1,17 @@
+[Unit]
+Description=Survival Search
+After=network.target
+
+[Service]
+User=survival-search
+Group=survival-search
+WorkingDirectory=/opt/survival-search
+ExecStart=/opt/survival-search/.venv/bin/python -m searx.webapp
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

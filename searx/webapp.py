@@ -475,12 +475,23 @@ def pre_request():
         preferences.key_value_settings['method'].value = 'GET'
     sxng_request.preferences = preferences  # pylint: disable=assigning-non-slot
 
+    # OIDC user from session (loaded early so DB prefs can be applied below)
+    sxng_request.user = oidc_module.get_current_user()  # pylint: disable=assigning-non-slot
+
     try:
         preferences.parse_dict(sxng_request.cookies)
-
     except Exception as e:  # pylint: disable=broad-except
         logger.exception(e, exc_info=True)
         sxng_request.errors.append(gettext('Invalid settings, please edit your preferences'))
+
+    # If logged in, override cookie prefs with per-user DB prefs
+    if sxng_request.user:
+        try:
+            db_prefs = get_userdb().get_preferences(sxng_request.user['sub'])
+            if db_prefs:
+                preferences.parse_encoded_data(db_prefs)
+        except Exception as e:  # pylint: disable=broad-except
+            logger.exception(e, exc_info=True)
 
     # merge GET, POST vars
     # HINT request.form is of type werkzeug.datastructures.ImmutableMultiDict
@@ -511,9 +522,6 @@ def pre_request():
         locale = _get_browser_language(sxng_request, LOCALE_NAMES.keys())
         preferences.parse_dict({"locale": locale})
         logger.debug('set locale %s (from browser)', preferences.get_value("locale"))
-
-    # OIDC user from session
-    sxng_request.user = oidc_module.get_current_user()  # pylint: disable=assigning-non-slot
 
     # request.user_plugins
     sxng_request.user_plugins = []  # pylint: disable=assigning-non-slot
@@ -901,6 +909,12 @@ def preferences():
         except ValidationException:
             sxng_request.errors.append(gettext('Invalid settings, please edit your preferences'))
             return resp
+        user = getattr(sxng_request, 'user', None)
+        if user:
+            try:
+                get_userdb().save_preferences(user['sub'], sxng_request.preferences.get_as_url_params())
+            except Exception as e:  # pylint: disable=broad-except
+                logger.exception(e, exc_info=True)
         return sxng_request.preferences.save(resp)
 
     # render preferences
